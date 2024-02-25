@@ -42,7 +42,7 @@ jobs:
 
       - name: Running naabu to check top all ports
         run: |
-          sudo /home/runner/go/bin/naabu -host 52.64.162.88  -rate 10000 -p - | tee output/active_ports.txt
+          echo 52.64.162.88 | sudo /home/runner/go/bin/naabu -rate 10000 -p - | tee output/active_ports.txt
         shell: bash
 
 
