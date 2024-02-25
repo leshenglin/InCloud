@@ -43,7 +43,7 @@ jobs:
       - name: Running naabu to check top all ports
         run: |
           cat input/target.txt
-          sudo /home/runner/go/bin/naabu -list input/target.txt  -p - | tee output/active_ports.txt
+          sudo /home/runner/go/bin/naabu -list /home/runner/input/target.txt -p - | tee output/active_ports.txt
         shell: bash
 
 
