@@ -42,19 +42,21 @@ jobs:
 
       - name: Running naabu to check top all ports
         run: |
-          sudo naabu -list input/target.txt  -rate 10000 -p - | tee output/active_ports.txt
+          sudo -i
+          whoami
+          naabu -list input/target.txt  -rate 10000 -p - | tee output/active_ports.txt
         shell: bash
 
 
       - name: Running httpx for HTTP webservers probbing
         run: |
-          sudo httpx -l output/active_ports.txt -title
-          sudo httpx -l output/active_ports.txt | tee output/active_urls.txt
+          httpx -l output/active_ports.txt -title
+          httpx -l output/active_ports.txt | tee output/active_urls.txt
         shell: bash
 
       - name: Sorting the output results
         run: |
-          sudo find output -type f -exec sort {} -o {} \;
+          find output -type f -exec sort {} -o {} \;
         shell: bash
 
       - name: Create local changes
