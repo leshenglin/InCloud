@@ -45,7 +45,7 @@ jobs:
           ls
           pwd
           cat input/target.txt
-          naabu -list input/target.txt -s CONNECT  | tee output/active_ports.txt
+          naabu -host 52.64.162.88 -p 1-65535 -s CONNECT  | tee output/active_ports.txt
         shell: bash
 
 
